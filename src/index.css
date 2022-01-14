@@ -10,6 +10,10 @@
 
 @layer components {
   .links {
-    @apply mr-4 text-lg py-4 hover:underline;
+    @apply mr-4 text-lg  hover:underline;
+  }
+
+  .thumb {
+    @apply w-[100px]  rounded focus:opacity-10 cursor-pointer;
   }
 }

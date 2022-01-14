@@ -12,11 +12,11 @@ import Contact from "../page/Contact";
 
 export default function Navbar() {
   return (
-    <div className="mt-4   ">
+    <div className=" items-center mt-4 mb-2   ">
       <MobileNav />
-      <div className="container md:flex hidden  items-center items-center py-2 border-b-2">
+      <div className="container md:flex hidden  items-center  items-center py-2 border-b-2">
         <div className="items-center">
-          <img className="h-6" src={logo} alt="" />
+          <img className="h-6" w-6 src={logo} alt="" />
         </div>
         <div className="flex ml-7 ">
           <Link className="links" to="/">
@@ -37,11 +37,11 @@ export default function Navbar() {
         </div>
         <div className="flex items-center h-6 justify-end w-full mr-10 gap-x-4">
           <div>
-            <img src={iconcart} alt="" />
+            <img className="h-6 w-6" src={iconcart} alt="" />
             <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">1</p>
           </div>
           <div>
-            <img className="h-6" src={imageavatar} alt="" />
+            <img className="h-6 w-6" src={imageavatar} alt="" />
           </div>
         </div>
       </div>
