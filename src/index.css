@@ -16,4 +16,8 @@
   .thumb {
     @apply w-[100px]  rounded focus:opacity-10 cursor-pointer;
   }
+
+  .slide {
+    @apply top-16 w-full h-52 absolute sm:hidden opacity-0;
+  }
 }
