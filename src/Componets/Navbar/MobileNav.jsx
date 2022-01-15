@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function MobileNav() {
   const [active, setActive] = useState(false);
   return (
-    <div className="container mx-auto md:hidden ">
+    <div className="container mx-auto md:hidden leading-normal  ">
       <div className="items-center">
         <div className="flex items-center ">
           <Menu>
@@ -17,7 +17,7 @@ export default function MobileNav() {
               </svg>
             </Menu.Button>
 
-            <Menu.Items className="bg-white shadow block absolute  md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
+            <Menu.Items className="bg-gray-300 shadow block absolute  md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
               <Menu.Item>
                 {
                   <a href="#">

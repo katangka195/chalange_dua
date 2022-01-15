@@ -12,7 +12,7 @@ import Contact from "../page/Contact";
 
 export default function Navbar() {
   return (
-    <div className=" items-center mt-4 mb-2   ">
+    <div className=" items-center mt-4 mb-2 leading-normal  ">
       <MobileNav />
       <div className="container md:flex hidden  items-center  items-center py-2 border-b-2">
         <div className="items-center">

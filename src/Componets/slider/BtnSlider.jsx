@@ -1,11 +1,13 @@
 import React from "react";
-import next from "./icons/next.svg";
+import nextArrow from "./icons/nextArrow.svg";
+import prevArrow from "./icons/prevArrow.svg";
 
-function BtnSlider({direction, moveSlide}) {
+function BtnSlider({ direction, moveSlide }) {
+  console.log(direction, moveSlide);
   return (
-    <div>
-      <img src={next} />
-    </div>
+    <button onClick={moveSlide} className={`${direction === "next" ? "btn-slider next" : "btn-slide prev"} sm:hidden `}>
+      <img src={direction == "next" ? nextArrow : prevArrow} />
+    </button>
   );
 }
 
