@@ -4,10 +4,13 @@ import iconcart from "./iconcart.svg";
 import imageavatar from "./imageavatar.png";
 import { Menu } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import counterAtom from "../../recoil/counter/atoms";
 export default function MobileNav() {
   const [active, setActive] = useState(false);
+  const [value] = useRecoilState(counterAtom);
   return (
-    <div className="container mx-auto md:hidden leading-normal  ">
+    <div className="container mx-auto md:hidden leading-normal absolute h-full  ">
       <div className="items-center">
         <div className="flex items-center ">
           <Menu>
@@ -17,7 +20,7 @@ export default function MobileNav() {
               </svg>
             </Menu.Button>
 
-            <Menu.Items className="bg-gray-300 shadow block absolute  md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
+            <Menu.Items className="bg-white h-full z-10 shadow h-full block absolute  md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
               <Menu.Item>
                 {
                   <a href="#">
@@ -76,8 +79,9 @@ export default function MobileNav() {
             <img src={logo} alt="" />
           </div>
           <div className="flex gap-x-4 h-6 justify-end w-screen mr-10">
-            <img src={iconcart} alt="" />
-            <img src={imageavatar} alt="" />
+            <img src={iconcart} />
+            <div className="bg-orange-500 px-2 rounded-full py-0.5 text-center text-sm absolute -top-4 right-16">{value}</div>
+            <img className="object-cover" src={imageavatar} alt="" />
           </div>
         </div>
       </div>

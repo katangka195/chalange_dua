@@ -9,14 +9,17 @@ import Men from "../page/Men";
 import Women from "../page/Women";
 import About from "../page/About";
 import Contact from "../page/Contact";
+import { useRecoilState } from "recoil";
+import counterAtom from "../../recoil/counter/atoms";
 
 export default function Navbar() {
+  const [value] = useRecoilState(counterAtom);
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
       <MobileNav />
       <div className="container md:flex hidden  items-center  items-center py-2 border-b-2">
-        <div className="items-center">
-          <img className="h-6" w-6 src={logo} alt="" />
+        <div className="items-center ">
+          <img className="object-cover  " src={logo} width={250} height={250} alt="" />
         </div>
         <div className="flex ml-7 ">
           <Link className="links" to="/">
@@ -38,7 +41,7 @@ export default function Navbar() {
         <div className="flex items-center h-6 justify-end w-full mr-10 gap-x-4">
           <div>
             <img className="h-6 w-6" src={iconcart} alt="" />
-            <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">1</p>
+            <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">{value}</p>
           </div>
           <div>
             <img className="h-6 w-6" src={imageavatar} alt="" />

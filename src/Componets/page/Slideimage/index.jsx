@@ -34,8 +34,9 @@ export default function Slidemage() {
           <a className="hover:opacity-60">
             <img onClick={Handeler1} src={thumb1} className="thumb image" />
           </a>
-
-          <img onClick={Handeler2} src={thumb2} className="thumb image" />
+          <a className="hover:opacity-60">
+            <img onClick={Handeler2} src={thumb2} className="thumb image" />
+          </a>
 
           <a className="hover:opacity-60">
             <img onClick={Handeler3} src={thumb3} className="thumb image" />

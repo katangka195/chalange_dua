@@ -10,7 +10,7 @@
 
 @layer components {
   .links {
-    @apply mr-4 text-lg  hover:underline;
+    @apply mr-4 ml-4 text-lg  hover:underline;
   }
 
   .thumb {
@@ -18,7 +18,7 @@
   }
 
   .slide {
-    @apply top-16 w-full h-52 absolute order-2 sm:hidden opacity-0;
+    @apply top-16 w-full h-52 absolute  order-2 sm:hidden opacity-0;
   }
 
   .btn-Slide {
@@ -26,7 +26,7 @@
   }
 
   .next {
-    @apply absolute top-52  right-[20px] translate-y-6;
+    @apply absolute top-52  right-[20px] translate-y-6 hover:bg-black;
   }
 
   .prev {
