@@ -26,7 +26,7 @@ export default function Slider() {
       {dataSlider.map((obj, index) => {
         return (
           <div className={slideIndex === index + 1 ? "slide activeAnim" : "slide"}>
-            <img className="rounded" src={process.env.PUBLIC_URL + `/Imgs/img${index + 1}.jpg`} />
+            <img className="rounded h-96 w-full" src={process.env.PUBLIC_URL + `/Imgs/img${index + 1}.jpg`} />
           </div>
         );
       })}

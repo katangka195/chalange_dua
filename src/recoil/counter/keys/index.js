@@ -1,3 +1,4 @@
 const COUNTER_KEY = "COUNTER_KEY";
+const HARGA_KEY = "HARGA_KEY";
 
-export default COUNTER_KEY;
+export { COUNTER_KEY, HARGA_KEY };

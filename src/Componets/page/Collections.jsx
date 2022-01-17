@@ -1,31 +1,32 @@
 import React from "react";
 import Slidemage from "./Slideimage";
 import { useRecoilState } from "recoil";
-import counterAtom from "../../recoil/counter/atoms";
+import counterAtom, { Harga } from "../../recoil/counter/atoms";
 
 export default function Collections() {
   const [value, setValue] = useRecoilState(counterAtom);
+  const harga = useRecoilState(Harga);
 
   const clickHandelerminus = () => {
-    setValue(value - 1);
+    if (value > 0) {
+      setValue(value - 1);
+    }
   };
 
   const clickHandelersum = () => {
     setValue(value + 1);
-    // if (value < 0) {
-    //   isDisabled;
-    // }
   };
 
   return (
     <div className="container mx-auto ">
+      {/* <div>{harga}</div> */}
       <div className="grid grid-cols-1 md:flex md: space-x-4">
         <div className="md:w-1/2 block">
           <Slidemage />
         </div>
-        <div className="md:w-1/2 block md:mt-10 leading-normal mt-[460px] pl-5 sm:pl-0 container ">
+        <div className="md:w-1/2 block md:mt-10 leading-normal mt-[460px] pl-5 sm:pl-0 pr-10 container ">
           <div className="text-orange-400 uppercase text-sm font-semibold ">sneaker company</div>
-          <h1 className="text-xl font-bold mt-3">
+          <h1 className="text-2xl font-bold mt-3">
             Fall Limited Edition <br /> Sneakers
           </h1>
           <p className="mt-5 text-gray-400">
@@ -42,9 +43,9 @@ export default function Collections() {
               <div className="mr-8 line-through text-gray-400 block sm:hidden ">$250.00</div>
             </div>
           </div>
-          <div className="sm:flex justify-center sm:justify-start items-center grid justify-items-center  mt-7 sm:space-x-4">
-            {/* tombol */}
-            <div className=" items-center flex w-80 rounded  bg-gray-100 justify-between font-bold p-1 left-0 right-0 top-0 bottom-0 ">
+          <div className="sm:flex justify-center mx-auto relative sm:justify-start items-center grid justify-items-center  mt-7 sm:space-x-4 ">
+            {/* tombol counter */}
+            <div className="  items-center flex w-80 rounded  bg-gray-100 justify-between font-bold p-0.5  pb-1  ">
               <button onClick={clickHandelerminus} className=" text-orange-500 text-3xl ">
                 -
               </button>

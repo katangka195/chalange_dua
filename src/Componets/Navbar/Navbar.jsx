@@ -11,9 +11,11 @@ import About from "../page/About";
 import Contact from "../page/Contact";
 import { useRecoilState } from "recoil";
 import counterAtom from "../../recoil/counter/atoms";
+import { Menu } from "@headlessui/react";
 
 export default function Navbar() {
   const [value] = useRecoilState(counterAtom);
+
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
       <MobileNav />
@@ -40,7 +42,15 @@ export default function Navbar() {
         </div>
         <div className="flex items-center h-6 justify-end w-full mr-10 gap-x-4">
           <div>
-            <img className="h-6 w-6" src={iconcart} alt="" />
+            <Menu>
+              <Menu.Button>
+                <img className="h-6 w-6" src={iconcart} alt="" />
+              </Menu.Button>
+              <Menu.Items className="absolute bg-gray-300 w-60 h-60 rounded">
+                <Menu.Item>{<span>{value}</span>}</Menu.Item>
+                {/* <div>{c}</div> */}
+              </Menu.Items>
+            </Menu>
             <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">{value}</p>
           </div>
           <div>
