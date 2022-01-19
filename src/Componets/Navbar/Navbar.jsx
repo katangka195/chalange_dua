@@ -10,11 +10,14 @@ import Women from "../page/Women";
 import About from "../page/About";
 import Contact from "../page/Contact";
 import { useRecoilState } from "recoil";
-import counterAtom from "../../recoil/counter/atoms";
+import counterAtom, { Harga, Jumlah, Logic } from "../../recoil/counter/atoms";
 import { Menu } from "@headlessui/react";
 
 export default function Navbar() {
   const [value] = useRecoilState(counterAtom);
+  const [harga] = useRecoilState(Harga);
+  const [jumlah] = useRecoilState(Jumlah);
+  const [logic] = useRecoilState(Logic);
 
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
@@ -46,8 +49,17 @@ export default function Navbar() {
               <Menu.Button>
                 <img className="h-6 w-6" src={iconcart} alt="" />
               </Menu.Button>
-              <Menu.Items className="absolute bg-gray-300 w-60 h-60 rounded">
-                <Menu.Item>{<span>{value}</span>}</Menu.Item>
+              <Menu.Items className="absolute bg-white shadow-2xl w-60 h-60 rounded-md">
+                <Menu.Item>{<h1 className="font-bold p-2 border-b-2">Cart</h1>}</Menu.Item>
+                <Menu.Item>
+                  {logic ? (
+                    <span>
+                      {value} + {harga} = {jumlah}
+                    </span>
+                  ) : (
+                    <h1 className="container flex mx-auto h-auto mt-16 justify-center  text-gray-500">Your cart is empty</h1>
+                  )}
+                </Menu.Item>
                 {/* <div>{c}</div> */}
               </Menu.Items>
             </Menu>

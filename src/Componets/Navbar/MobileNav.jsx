@@ -1,18 +1,18 @@
-
 import logo from "./logo.svg";
 import iconcart from "./iconcart.svg";
 import imageavatar from "./imageavatar.png";
 import { Menu } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import counterAtom from "../../recoil/counter/atoms";
+import counterAtom, { Harga } from "../../recoil/counter/atoms";
 export default function MobileNav() {
   const [value] = useRecoilState(counterAtom);
+  
   return (
     <div className="container mx-auto md:hidden leading-normal absolute h-full  ">
       <div className="items-center">
         <div className="flex items-center ">
-          <Menu>  
+          <Menu>
             <Menu.Button>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
