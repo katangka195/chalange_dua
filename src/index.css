@@ -26,11 +26,11 @@
   }
 
   .next {
-    @apply absolute top-52  right-[20px] translate-y-6 hover:bg-black;
+    @apply absolute top-52  right-[20px] translate-y-6 hover:cursor-pointer;
   }
 
   .prev {
-    @apply top-52 absolute left-[20px] translate-y-6;
+    @apply top-52 absolute left-[20px] translate-y-6 hover:cursor-pointer;
   }
 
   .activeAnim {

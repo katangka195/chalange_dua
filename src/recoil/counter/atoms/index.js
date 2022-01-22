@@ -21,7 +21,17 @@ const Logic = atom({
   default: false,
 });
 
+const List = atom({
+  key: "yas",
+  default: {
+    judul: "sneaker company",
+    title: "Fall Limited Edition sneaker",
+    nilai: 12,
+  },
+});
+
 export default counterAtom;
 export { Harga };
 export { Jumlah };
 export { Logic };
+export { List };

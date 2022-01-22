@@ -4,10 +4,13 @@ import imageavatar from "./imageavatar.png";
 import { Menu } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import counterAtom, { Harga } from "../../recoil/counter/atoms";
+import counterAtom, { Harga, Jumlah, Logic } from "../../recoil/counter/atoms";
 export default function MobileNav() {
   const [value] = useRecoilState(counterAtom);
-  
+  const [harga] = useRecoilState(Harga);
+  const [jumlah] = useRecoilState(Jumlah);
+  const [logic] = useRecoilState(Logic);
+
   return (
     <div className="container mx-auto md:hidden leading-normal absolute h-full  ">
       <div className="items-center">
@@ -19,7 +22,7 @@ export default function MobileNav() {
               </svg>
             </Menu.Button>
 
-            <Menu.Items className="bg-white h-full z-10 shadow h-full block absolute  md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
+            <Menu.Items className="bg-white h-full z-50 absolute  shadow h-full block   md:bg-transparent w-1/2  left-0 right-0 top-0 bottom-0">
               <Menu.Item>
                 {
                   <a href="#">
@@ -73,7 +76,24 @@ export default function MobileNav() {
             <img src={logo} alt="" />
           </div>
           <div className="flex gap-x-4 h-6 justify-end w-screen mr-10">
-            <img className="static" src={iconcart} />
+            <Menu>
+              <Menu.Button>
+                <img className="h-6 w-6" src={iconcart} alt="" />
+              </Menu.Button>
+              <Menu.Items className="absolute bg-white shadow-2xl w-60 h-60 rounded-md">
+                <Menu.Item>{<h1 className="font-bold p-2 border-b-2">Cart</h1>}</Menu.Item>
+                <Menu.Item>
+                  {logic ? (
+                    <span>
+                      {value} + {harga} = {jumlah}
+                    </span>
+                  ) : (
+                    <h1 className="container flex mx-auto h-auto mt-16 justify-center  text-gray-500">Your cart is empty</h1>
+                  )}
+                </Menu.Item>
+                
+              </Menu.Items>
+            </Menu>
             <div className="bg-orange-500 px-2 rounded-full py-0.5 text-center text-sm absolute z-30 -top-4 right-16">{value}</div>
             <img className="object-cover" src={imageavatar} alt="" />
           </div>

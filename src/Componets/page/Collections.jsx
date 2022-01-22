@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Slidemage from "./Slideimage";
 import { useRecoilState } from "recoil";
-import counterAtom, { Harga, Jumlah, Logic } from "../../recoil/counter/atoms";
+import counterAtom, { Harga, Jumlah, Logic, List } from "../../recoil/counter/atoms";
 
 export default function Collections() {
   const [value, setValue] = useRecoilState(counterAtom);
   const [harga] = useRecoilState(Harga);
   const [jumlah, setJumlah] = useRecoilState(Jumlah);
-  const [logic, setLogic] = useRecoilState(Logic);
+  const [logic, SetLogic] = useRecoilState(Logic);
+  const [list] = useRecoilState(List);
 
   const clickHandelerminus = () => {
     if (value > 0) {
@@ -20,21 +21,22 @@ export default function Collections() {
   };
 
   const addTocard = function () {
-    setLogic(true);
+    SetLogic(true);
     setJumlah(harga * value);
   };
 
   return (
     <div className="container mx-auto ">
       {/* <div>{harga}</div> */}
+      {/* <div>{logicnya.nilai}</div> */}
       <div className="grid grid-cols-1 md:flex md: space-x-4">
         <div className="md:w-1/2 block">
           <Slidemage />
         </div>
         <div className="md:w-1/2 block md:mt-10 leading-normal mt-[460px] pl-5 sm:pl-0 pr-10 container ">
-          <div className="text-orange-400 uppercase text-sm font-semibold ">sneaker company</div>
+          <div className="text-orange-400 uppercase text-sm font-semibold ">{list.judul}</div>
           <h1 className="text-2xl font-bold mt-3">
-            Fall Limited Edition <br /> Sneakers
+            {list.title} <br /> Sneakers
           </h1>
           <p className="mt-5 text-gray-400">
             These low-profile sneakers are you perfect casual wear <br /> companion. Featuring a durable rubber auter sole, the'll <br /> witstand everything the weather can offer
