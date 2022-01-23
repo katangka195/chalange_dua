@@ -18,9 +18,13 @@ export default function Navbar() {
   const [harga] = useRecoilState(Harga);
   const [jumlah] = useRecoilState(Jumlah);
   const [logic] = useRecoilState(Logic);
-  const [list] = useRecoilState(List);
+  const [list, setLish] = useRecoilState(List);
 
-  const clearProduct = () => {};
+  const clearProduct = () => {
+    setLish = "";
+    // const products = document.querySelector("#product");
+    // products.innerHTML = "";
+  };
 
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
@@ -54,9 +58,9 @@ export default function Navbar() {
               </Menu.Button>
               <Menu.Items className="absolute bg-white shadow-2xl w-60 h-60 rounded-md">
                 <Menu.Item>{<h1 className="font-bold p-2 border-b-2">Cart</h1>}</Menu.Item>
-                <Menu.Item id="product">
+                <Menu.Item>
                   {logic ? (
-                    <div>
+                    <div id="product">
                       <div className="flex space-x-2 items-center">
                         <div>
                           <img className="rounded-md h-11 w-11" src={process.env.PUBLIC_URL + "/Imgs/img1.jpg"} />
