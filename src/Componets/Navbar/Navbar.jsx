@@ -21,19 +21,17 @@ export default function Navbar() {
   const [list, setLish] = useRecoilState(List);
 
   const clearProduct = () => {
-    setLish = "";
-    // const products = document.querySelector("#product");
-    // products.innerHTML = "";
+    document.querySelector("#product").textContent = "";
   };
 
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
       <MobileNav />
       <div className="container md:flex hidden  items-center  items-center py-2 border-b-2">
-        <div className="items-center ">
+        <div className="items-center -mt-2 ">
           <img className="object-cover  " src={logo} width={250} height={250} alt="" />
         </div>
-        <div className="flex ml-7 ">
+        <div className="flex ml-7 items-center ">
           <Link className="links" to="/">
             Collectios
           </Link>
@@ -56,7 +54,7 @@ export default function Navbar() {
               <Menu.Button>
                 <img className="h-6 w-6" src={iconcart} alt="" />
               </Menu.Button>
-              <Menu.Items className="absolute bg-white shadow-2xl w-60 h-60 rounded-md">
+              <Menu.Items className="absolute container right-24  bg-white shadow-2xl w-60 h-60 rounded-md">
                 <Menu.Item>{<h1 className="font-bold p-2 border-b-2">Cart</h1>}</Menu.Item>
                 <Menu.Item>
                   {logic ? (
@@ -90,7 +88,7 @@ export default function Navbar() {
             <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">{value}</p>
           </div>
           <div>
-            <img className="h-6 w-6" src={imageavatar} alt="" />
+            <img className="h-6 w-6 hover:ring-orange-500 hover:ring-2 rounded-full " src={imageavatar} alt="" />
           </div>
         </div>
       </div>
