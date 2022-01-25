@@ -10,20 +10,28 @@ import Women from "../page/Women";
 import About from "../page/About";
 import Contact from "../page/Contact";
 import { useRecoilState } from "recoil";
-import counterAtom from "../../recoil/counter/atoms";
+import counterAtom, { Harga, Jumlah, Logic, List } from "../../recoil/counter/atoms";
 import { Menu } from "@headlessui/react";
 
 export default function Navbar() {
-  const [value] = useRecoilState(counterAtom);
+  const [value, setValue] = useRecoilState(counterAtom);
+  const [harga] = useRecoilState(Harga);
+  const [jumlah] = useRecoilState(Jumlah);
+  const [logic] = useRecoilState(Logic);
+  const [list, setLish] = useRecoilState(List);
+
+  const clearProduct = () => {
+    document.querySelector("#product").textContent = "";
+  };
 
   return (
     <div className=" items-center mt-4 mb-2 leading-normal  ">
       <MobileNav />
       <div className="container md:flex hidden  items-center  items-center py-2 border-b-2">
-        <div className="items-center ">
+        <div className="items-center -mt-2 ">
           <img className="object-cover  " src={logo} width={250} height={250} alt="" />
         </div>
-        <div className="flex ml-7 ">
+        <div className="flex ml-7 items-center ">
           <Link className="links" to="/">
             Collectios
           </Link>
@@ -46,15 +54,41 @@ export default function Navbar() {
               <Menu.Button>
                 <img className="h-6 w-6" src={iconcart} alt="" />
               </Menu.Button>
-              <Menu.Items className="absolute bg-gray-300 w-60 h-60 rounded">
-                <Menu.Item>{<span>{value}</span>}</Menu.Item>
-                {/* <div>{c}</div> */}
+              <Menu.Items className="absolute container right-24  bg-white shadow-2xl w-60 h-60 rounded-md">
+                <Menu.Item>{<h1 className="font-bold p-2 border-b-2">Cart</h1>}</Menu.Item>
+                <Menu.Item>
+                  {logic ? (
+                    <div id="product">
+                      <div className="flex space-x-2 items-center">
+                        <div>
+                          <img className="rounded-md h-11 w-11" src={process.env.PUBLIC_URL + "/Imgs/img1.jpg"} />
+                        </div>
+                        <span className="text-xs text-gray-400">
+                          <div>{list.title}</div>
+                          {value} * {harga} = <span className="text-black font-bold">$ {jumlah}</span>
+                        </span>
+                        <div>
+                          <button onClick={clearProduct}>
+                            <img src={process.env.PUBLIC_URL + "/Imgs/delete.svg"} />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="mt-5 w-full text-center">
+                        <button className="bg-orange-500 px-16 py-2 rounded-xl text-white">Checkout</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <h1 className="container flex mx-auto h-auto mt-16 justify-center   text-gray-500">Your cart is empty</h1>
+                    </div>
+                  )}
+                </Menu.Item>
               </Menu.Items>
             </Menu>
             <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">{value}</p>
           </div>
           <div>
-            <img className="h-6 w-6" src={imageavatar} alt="" />
+            <img className="h-8 w-8 -mt-2 hover:ring-orange-500 hover:ring-2 rounded-full object-cover" src={imageavatar} alt="" />
           </div>
         </div>
       </div>
