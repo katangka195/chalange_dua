@@ -59,7 +59,7 @@ export default function Collections() {
                 -
               </button>
               <p>{value}</p>
-              <button onClick={clickHandelersum} className="text-orange-500 text-3xl hover:opacity-50 r ">
+              <button onClick={clickHandelersum} className="text-orange-500 text-3xl hover:opacity-50">
                 +
               </button>
             </div>

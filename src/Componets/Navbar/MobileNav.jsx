@@ -115,6 +115,7 @@ export default function MobileNav() {
                 </Menu.Item>
               </Menu.Items>
             </Menu>
+
             <div className="space-x-3">
               <div className="bg-orange-500 px-2  rounded-full py-0.5 text-center text-sm absolute z-30 -top-4 right-20">{value}</div>
               <img className="object-cover h-8 w-8 -mt-1  hover:ring-2 hover:ring-orange-500 rounded-full" src={imageavatar} alt="" />

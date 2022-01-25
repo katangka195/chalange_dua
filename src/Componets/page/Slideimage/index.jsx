@@ -37,10 +37,10 @@ export default function Slidemage() {
         <FsLightbox toggler={toggler} sources={[<img src={thumb1} />, <img src={thumb2} />, <img src={thumb3} />, <img src={thumb4} />]} />
         <div className="flex mt-3 gap-x-2">
           <a className="hover:opacity-60 ">
-            <img onClick={Handeler1} src={thumb1} className=" thumb image active:ring-4 active:ring-orange-500" />
+            <img onClick={Handeler1} src={thumb1} className=" thumb image" />
           </a>
           <a className="hover:opacity-60">
-            <img onClick={Handeler2} src={thumb2} className=" thumb image active:ring-4 active:ring-orange-500" />
+            <img onClick={Handeler2} src={thumb2} className=" thumb image" />
           </a>
 
           <a className="hover:opacity-60">

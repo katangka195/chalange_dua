@@ -88,7 +88,7 @@ export default function Navbar() {
             <p className="absolute -mt-10 bg-orange-500 text-white rounded-full px-2">{value}</p>
           </div>
           <div>
-            <img className="h-8 w-8 -mt-2 hover:ring-orange-500 hover:ring-2 rounded-full object-cover" src={imageavatar} alt="" />
+            <img className="h-6 w-6 -mt-2 hover:ring-orange-500 hover:ring-2 rounded-full " src={imageavatar} alt="" />
           </div>
         </div>
       </div>
